@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useEffect } from 'react';
+
 
 function App() {
+
+
+
+
+
+    const buttonHandler=()=>{
+      const currentDate = new Date().toISOString();
+
+      const payload = {
+        userID: '1703153',
+        date: currentDate,
+        deviceID: 'asusP45UQ',
+        queryText: 'Need a new battery!',
+      };
+  
+  
+  
+      fetch( 'http://localhost:5000/support/create_ticket', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(res=>res.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+   
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button type="text" onClick={buttonHandler}>Create Ticket</button>
     </div>
   );
 }
