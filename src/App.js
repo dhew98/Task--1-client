@@ -10,8 +10,6 @@ function App() {
 
     const handleSubmit=(event)=>{
       const currentDate = new Date().toISOString();
-
-
       event.preventDefault();
       const form = event.target;
       const  userID= form.userID.value;
