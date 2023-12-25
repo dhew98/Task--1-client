@@ -1,12 +1,8 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 
 function App() {
-
-
-
-
 
     const buttonHandler=()=>{
       const currentDate = new Date().toISOString();
@@ -17,9 +13,8 @@ function App() {
         deviceID: 'asusP45UQ',
         queryText: 'Need a new battery!',
       };
-  
-  
-  
+
+
       fetch( 'http://localhost:5000/support/create_ticket', {
         method: 'POST',
         headers: {
@@ -36,7 +31,6 @@ function App() {
         });
     }
    
-
 
   return (
     <div className="App">
