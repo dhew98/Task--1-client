@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Swal from 'sweetalert2'
 
 
 function App() {
@@ -8,10 +9,10 @@ function App() {
       const currentDate = new Date().toISOString();
 
       const payload = {
-        userID: '1703153',
+        userID: '1703152',
         date: currentDate,
-        deviceID: 'asusP45UQ',
-        queryText: 'Need a new battery!',
+        deviceID: 'lenovo ideapad',
+        queryText: 'Need a new charger!',
       };
 
 
@@ -25,6 +26,7 @@ function App() {
         .then(res=>res.json())
         .then(data => {
           console.log(data);
+          Swal.fire("Check the Console!");
         })
         .catch(error => {
           console.error(error);
